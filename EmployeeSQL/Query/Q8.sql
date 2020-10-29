@@ -4,7 +4,7 @@
 -- Select columns to display
 SELECT last_name,
 	-- Apply count function to count last name
-	COUNT(last_name) AS "Frequency of Last name"
+	COUNT(*) AS "Frequency of Last name"
 -- Select table that contains needed info.
 FROM employees
 -- Apply GROUP BY to be used in an aggregate function 
