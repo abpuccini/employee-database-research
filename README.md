@@ -37,98 +37,98 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
  
 1. List the following details of each employee: employee number, last name, first name, sex, and salary. [**Query-1**](EmployeeSQL/Q1.sql) 
 
-```javascript
-SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
-FROM employees AS e
-LEFT JOIN salaries AS s
-ON e.emp_no = s.emp_no;|
-```
+
+        SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
+        FROM employees AS e
+        LEFT JOIN salaries AS s
+        ON e.emp_no = s.emp_no;|
+
 
 ---
 2. List first name, last name, and hire date for employees who were hired in 1986. [**Query-2**](EmployeeSQL/Q2.sql) 
 
-```javascript
-SELECT first_name, last_name, hire_date
-FROM employees
-WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31';
-```
+
+        SELECT first_name, last_name, hire_date
+        FROM employees
+        WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31';
+
 
 ---
 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name. [**Query-3**](EmployeeSQL/Q3.sql)
 
-```javascript
-SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
-FROM dept_manager AS dm
-JOIN departments AS d 
-ON dm.dept_no = d.dept_no
-JOIN employees AS e 
-ON dm.emp_no = e.emp_no;
-```
+
+        SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
+        FROM dept_manager AS dm
+        JOIN departments AS d 
+        ON dm.dept_no = d.dept_no
+        JOIN employees AS e 
+        ON dm.emp_no = e.emp_no;
+
 
 ---
 4. List the department of each employee with the following information: employee number, last name, first name, and department name. [**Query-4**](EmployeeSQL/Q4.sql)
 
-```javascript
-SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
-FROM employees AS e
-JOIN dept_emp AS de
-ON e.emp_no = de.emp_no
-JOIN departments AS d
-ON de.dept_no = d.dept_no;
-```
+
+        SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+        FROM employees AS e
+        JOIN dept_emp AS de
+        ON e.emp_no = de.emp_no
+        JOIN departments AS d
+        ON de.dept_no = d.dept_no;
+
 
 ---
 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B." [**Query-5**](EmployeeSQL/Q5.sql) 
 
-```javascript
-SELECT first_name, last_name, sex
-FROM employees 
-WHERE first_name = 'Hercules'
-AND last_name LIKE 'B%';
-```
+
+        SELECT first_name, last_name, sex
+        FROM employees 
+        WHERE first_name = 'Hercules'
+        AND last_name LIKE 'B%';
+
 
 ---
 6. List all employees in the Sales department, including their employee number, last name, first name, and department name. [**Query-6:**](EmployeeSQL/Q6.sql) 
 
-```javascript
-SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
-FROM employees AS e
-JOIN dept_emp AS de
-ON e.emp_no = de.emp_no
-JOIN departments AS d
-ON de.dept_no = d.dept_no
-WHERE d.dept_name = 'Sales';
-```
+
+        SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+        FROM employees AS e
+        JOIN dept_emp AS de
+        ON e.emp_no = de.emp_no
+        JOIN departments AS d
+        ON de.dept_no = d.dept_no
+        WHERE d.dept_name = 'Sales';
+
 
 ---
 7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name. [**Query-VII:**](EmployeeSQL/Q7.sql) 
 
-```javascript
-SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
-FROM employees AS e
-JOIN dept_emp AS de
-ON e.emp_no = de.emp_no
-JOIN departments AS d
-ON de.dept_no = d.dept_no
-WHERE d.dept_name IN ('Sales', 'Development');
-```
+
+        SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+        FROM employees AS e
+        JOIN dept_emp AS de
+        ON e.emp_no = de.emp_no
+        JOIN departments AS d
+        ON de.dept_no = d.dept_no
+        WHERE d.dept_name IN ('Sales', 'Development');
+
 
 ---
 8. In descending order, list the frequency count of employee last names. [**Query-8**](EmployeeSQL/Q8.sql) 
 
-```javascript
-SELECT last_name,
-COUNT(*) AS "Frequency of Last name"
-FROM employees
-GROUP BY last_name
-ORDER BY "Frequency of Last name" DESC;
-```
+
+        SELECT last_name,
+        COUNT(*) AS "Frequency of Last name"
+        FROM employees
+        GROUP BY last_name
+        ORDER BY "Frequency of Last name" DESC;
+
 
 ---
 ### Part I: Bonus
 *Import database into Jupyter Notebook to visualize the data*
 
-**Bonus-II:** The most common salary
+**Bonus-I:** The most common salary
 
 - The most common salary for Pewlett Hackard's employees is between $40,000 and $50,000. [**Bonus-1:**](https://nbviewer.jupyter.org/github/abpuccini/sql-challenge/blob/main/Employee_DB.ipynb)
 
@@ -142,19 +142,19 @@ ORDER BY "Frequency of Last name" DESC;
 
 - In postgres: Calculation of average salary by title stored in view. [Query](EmployeeSQL/bonus_q2.sql) 
 
-```javascript
-CREATE VIEW "avg_salary_title" AS
-SELECT t.title,
-ROUND(AVG(s.salary),2) AS "avg salary"
-FROM employees AS e 
-JOIN salaries AS s
-ON e.emp_no = s.emp_no
-JOIN titles AS t
-ON e.emp_title_id = t.title_id
-GROUP BY t.title;
 
-SELECT * FROM avg_salary_title;
-```
+        CREATE VIEW "avg_salary_title" AS
+        SELECT t.title,
+        ROUND(AVG(s.salary),2) AS "avg salary"
+        FROM employees AS e 
+        JOIN salaries AS s
+        ON e.emp_no = s.emp_no
+        JOIN titles AS t
+        ON e.emp_title_id = t.title_id
+        GROUP BY t.title;
+
+        SELECT * FROM avg_salary_title;
+
 
 - In Jupyter Notebook: Import view to visualize data. [Jupyter Notebook](https://nbviewer.jupyter.org/github/abpuccini/sql-challenge/blob/main/Employee_DB.ipynb) 
 
@@ -166,24 +166,24 @@ SELECT * FROM avg_salary_title;
 
 **Epilogue:** [Query](EmployeeSQL/bonus-epilogue.sql)
 
-After giving a presentation to my boss, I heard the word, "Search your ID number." Then, I looked up for ID 499942 and found that the name and hire date were incorrect. That name was April Foolday and hire date is before I was born. Therefore, I changed it to my name and hire date to November 4, 2020. :wink:   
+After giving a presentation to my boss, I heard the word, "Search your ID number." Then, I looked up for ID 499942 and found that the name and hire date were incorrect. That name was April Foolday and hire date is before I was born. Therefore, I updated it to my name and hire date to November 4, 2020. :wink:   
 
-```javascript
-SELECT * FROM employees
-WHERE emp_no = 499942;
 
-UPDATE employees
-SET (last_name, first_name, hire_date) = ('Puccini', 'Atcharaporn', '2020-11-04')
-WHERE emp_no = 499942;
+        SELECT * FROM employees
+        WHERE emp_no = 499942;
 
-SELECT e.emp_no, e.last_name, e.first_name, e.hire_date, d.dept_name
-FROM employees AS e
-JOIN dept_emp AS de
-ON e.emp_no = de.emp_no
-JOIN departments AS d
-ON de.dept_no = d.dept_no
-WHERE e.emp_no = 499942;
-```
+        UPDATE employees
+        SET (last_name, first_name, hire_date) = ('Puccini', 'Atcharaporn', '2020-11-04')
+        WHERE emp_no = 499942;
+
+        SELECT e.emp_no, e.last_name, e.first_name, e.hire_date, d.dept_name
+        FROM employees AS e
+        JOIN dept_emp AS de
+        ON e.emp_no = de.emp_no
+        JOIN departments AS d
+        ON de.dept_no = d.dept_no
+        WHERE e.emp_no = 499942;
+
 
 ---
 © [Atcharaporn B Puccini](https://www.linkedin.com/in/atcharaporn-puccini-233614118)
