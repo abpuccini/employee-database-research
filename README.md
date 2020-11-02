@@ -54,7 +54,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-**3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.** [**Query-3**](EmployeeSQL/Q3.sql)
+**3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.** [(Query-3)](EmployeeSQL/Q3.sql)
 
 
         SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
