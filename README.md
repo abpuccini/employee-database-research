@@ -17,7 +17,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 ### Data Analysis
 
-**Part I: Create tables regarding to 6 csv files**
+#### Part I: Create tables regarding to 6 csv files
 
 - Create `employee_db` database in PostgreSQL 
 - Import [schema](EmployeeSQL/employee_schema.sql) into database created
@@ -30,16 +30,15 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
   * [dept_manager](Resources/dept_manager.csv)
   * [salaries](Resources/salaries.csv)
 
-**Part II: Answer Questions**
-
-*This part will include all the queries excecuted in order to answer each quwstion.* 
+#### Part II: Answer Questions** 
+*Including a query excecuted in order to answer each question.* 
 
 - [**Query-I:**](EmployeeSQL/Q1.sql) List the following details of each employee: employee number, last name, first name, sex, and salary.
 
-```javascript
-SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
-FROM employees as e
-LEFT JOIN salaries as s
-ON e.emp_no = s.emp_no;|
-```
+        ```javascript
+        SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
+        FROM employees as e
+        LEFT JOIN salaries as s
+        ON e.emp_no = s.emp_no;|
+        ```
 
