@@ -7,7 +7,7 @@ WHERE emp_no = 499942;
 -- Found that first name, last name and hire date is incorrect
 -- Update employee info to my name and hire_date
 UPDATE employees
-SET (last_name, first_name, hire_date) = ('Puccini', 'Atcharaporn', '2020-11-04')
+SET (last_name, first_name, hire_date) = ('Christmas', 'Merry', '2020-11-04')
 WHERE emp_no = 499942;
 
 -- Select columns to display after info. updated

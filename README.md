@@ -166,14 +166,14 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 **Epilogue:** [See Query](EmployeeSQL/bonus-epilogue.sql)
 
-After giving a presentation to my boss, I heard the word, "Search your ID number." Then, I looked up for ID 499942 and found that the name and hire date were incorrect. That name was April Foolday and hire date is before I was born. Therefore, I updated first name, last name and hire date. :wink:   
+After giving a presentation to my boss, I heard the word, "Search your ID number." Then, I looked up for ID 499942 and found that the name and hire date were incorrect. That name was April Foolday and hire date is before I was born. Therefore, I updated first name, last name and hire date. Then, displying the information of employee number 499942 again. :wink:   
 
 
         SELECT * FROM employees
         WHERE emp_no = 499942;
 
         UPDATE employees
-        SET (last_name, first_name, hire_date) = ('Puccini', 'Atcharaporn', '2020-11-04')
+        SET (last_name, first_name, hire_date) = ('Christmas', 'Merry', '2020-12-25')
         WHERE emp_no = 499942;
 
         SELECT e.emp_no, e.last_name, e.first_name, e.hire_date, d.dept_name
