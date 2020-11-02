@@ -28,6 +28,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
   * [dept_manager](Resources/dept_manager.csv)
   * [salaries](Resources/salaries.csv)
 
+---
 ## Data Analysis
 *Including a query excecuted in order to answer each question.*
 
@@ -42,6 +43,7 @@ LEFT JOIN salaries as s
 ON e.emp_no = s.emp_no;|
 ```
 
+---
 [**Query-II:**](EmployeeSQL/Q2.sql) List first name, last name, and hire date for employees who were hired in 1986.
 
 ```javascript
@@ -50,6 +52,7 @@ FROM employees
 WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31';
 ```
 
+---
 [**Query-III:**](EmployeeSQL/Q3.sql) List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
 
 ```javascript
@@ -61,6 +64,7 @@ JOIN employees AS e
 ON dm.emp_no = e.emp_no;
 ```
 
+---
 [**Query-IV:**](EmployeeSQL/Q4.sql) List the department of each employee with the following information: employee number, last name, first name, and department name.
 
 ```javascript
@@ -72,6 +76,7 @@ JOIN departments AS d
 ON de.dept_no = d.dept_no;
 ```
 
+---
 [**Query-V:**](EmployeeSQL/Q5.sql) List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
 
 ```javascript
@@ -81,6 +86,7 @@ WHERE first_name = 'Hercules'
 AND last_name LIKE 'B%';
 ```
 
+---
 [**Query-VI:**](EmployeeSQL/Q6.sql) List all employees in the Sales department, including their employee number, last name, first name, and department name.
 
 ```javascript
@@ -93,6 +99,7 @@ ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales';
 ```
 
+---
 [**Query-VII:**](EmployeeSQL/Q7.sql) List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 
 ```javascript
@@ -105,6 +112,7 @@ ON de.dept_no = d.dept_no
 WHERE d.dept_name IN ('Sales', 'Development');
 ```
 
+---
 [**Query-VIII:**](EmployeeSQL/Q8.sql) In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
 
 ```javascript
@@ -115,20 +123,22 @@ GROUP BY last_name
 ORDER BY "Frequency of Last name" DESC;
 ```
 
+---
 ### Part I: Bonus
 
-[**Bonus-I:**](https://nbviewer.jupyter.org/github/abpuccini/sql-challenge/blob/main/Employee_DB.ipynb) The most common salary ranges for employees 
-*Import database into Jupyter Notebook to visualize the data*
+[**Bonus-I:**](https://nbviewer.jupyter.org/github/abpuccini/sql-challenge/blob/main/Employee_DB.ipynb) *Import database into Jupyter Notebook to visualize the data*
+
+- The most common salary for Pewlett Hackard's employees is between $40,000 and $50,000.
 
 <p align="center">
   <img src="Images/salary_range.png">
 </p>
 
-The most common salary for Pewlett Hackard's employees is between $40,000 and $50,000.
+---
 
-[**Bonus-II:**](EmployeeSQL/bonus_q2.sql) Average salary by title
+**Bonus-II:** Average salary by title
 
-- In postgres: Calculation of average salary by title stored in view
+- [In postgres](EmployeeSQL/bonus_q2.sql) : Calculation of average salary by title stored in view
 
 ```javascript
 CREATE VIEW "avg_salary_title" AS
@@ -150,7 +160,9 @@ SELECT * FROM avg_salary_title;
   <img src="Images/avg_salary_title.png">
 </p>
 
-[**Epilogue:**](EmployeeSQL/bonus-epilogue.sql)
+---
+
+**Epilogue:** [Query](EmployeeSQL/bonus-epilogue.sql)
 
 After giving a presentation to my boss, I heard the word, "Search your ID number." Then, I looked up for ID 499942 and found that the name and hire date were incorrect. That name was April Foolday and hire date is before I was born. Therefore, I changed it to my name and hire date to November 4, 2020. :wink:   
 
