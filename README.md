@@ -13,6 +13,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 - title_id in titles table has a ***many-to-one*** relationships to emp_title_id in employees table.
 - dept_no in departments table has a ***many-to-one*** relationships to dept_no in dept_emp and dept_manager tables.
 
+
 ![Employee_ERD](Images/employee_DBD.png)
 
 ### Database
@@ -34,7 +35,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 ### Part I: Reserch Questions
  
-[**Query-I:**](EmployeeSQL/Q1.sql) List the following details of each employee: employee number, last name, first name, sex, and salary.
+1. List the following details of each employee: employee number, last name, first name, sex, and salary. [**Query-1**](EmployeeSQL/Q1.sql) 
 
 ```javascript
 SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
@@ -44,7 +45,7 @@ ON e.emp_no = s.emp_no;|
 ```
 
 ---
-[**Query-II:**](EmployeeSQL/Q2.sql) List first name, last name, and hire date for employees who were hired in 1986.
+2. List first name, last name, and hire date for employees who were hired in 1986. [**Query-2**](EmployeeSQL/Q2.sql) 
 
 ```javascript
 SELECT first_name, last_name, hire_date
@@ -53,7 +54,7 @@ WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31';
 ```
 
 ---
-[**Query-III:**](EmployeeSQL/Q3.sql) List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
+3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name. [**Query-3**](EmployeeSQL/Q3.sql)
 
 ```javascript
 SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
@@ -65,7 +66,7 @@ ON dm.emp_no = e.emp_no;
 ```
 
 ---
-[**Query-IV:**](EmployeeSQL/Q4.sql) List the department of each employee with the following information: employee number, last name, first name, and department name.
+4. List the department of each employee with the following information: employee number, last name, first name, and department name. [**Query-4**](EmployeeSQL/Q4.sql)
 
 ```javascript
 SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
@@ -77,7 +78,7 @@ ON de.dept_no = d.dept_no;
 ```
 
 ---
-[**Query-V:**](EmployeeSQL/Q5.sql) List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
+5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B." [**Query-5**](EmployeeSQL/Q5.sql) 
 
 ```javascript
 SELECT first_name, last_name, sex
@@ -87,7 +88,7 @@ AND last_name LIKE 'B%';
 ```
 
 ---
-[**Query-VI:**](EmployeeSQL/Q6.sql) List all employees in the Sales department, including their employee number, last name, first name, and department name.
+6. List all employees in the Sales department, including their employee number, last name, first name, and department name. [**Query-6:**](EmployeeSQL/Q6.sql) 
 
 ```javascript
 SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
@@ -100,7 +101,7 @@ WHERE d.dept_name = 'Sales';
 ```
 
 ---
-[**Query-VII:**](EmployeeSQL/Q7.sql) List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name. [**Query-VII:**](EmployeeSQL/Q7.sql) 
 
 ```javascript
 SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
@@ -113,7 +114,7 @@ WHERE d.dept_name IN ('Sales', 'Development');
 ```
 
 ---
-[**Query-VIII:**](EmployeeSQL/Q8.sql) In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+8. In descending order, list the frequency count of employee last names. [**Query-8**](EmployeeSQL/Q8.sql) 
 
 ```javascript
 SELECT last_name,
@@ -125,10 +126,11 @@ ORDER BY "Frequency of Last name" DESC;
 
 ---
 ### Part I: Bonus
+*Import database into Jupyter Notebook to visualize the data*
 
-[**Bonus-I:**](https://nbviewer.jupyter.org/github/abpuccini/sql-challenge/blob/main/Employee_DB.ipynb) *Import database into Jupyter Notebook to visualize the data*
+**Bonus-II:** The most common salary
 
-- The most common salary for Pewlett Hackard's employees is between $40,000 and $50,000.
+- The most common salary for Pewlett Hackard's employees is between $40,000 and $50,000. [**Bonus-1:**](https://nbviewer.jupyter.org/github/abpuccini/sql-challenge/blob/main/Employee_DB.ipynb)
 
 <p align="center">
   <img src="Images/salary_range.png">
@@ -138,7 +140,7 @@ ORDER BY "Frequency of Last name" DESC;
 
 **Bonus-II:** Average salary by title
 
-- [In postgres](EmployeeSQL/bonus_q2.sql) : Calculation of average salary by title stored in view
+- In postgres: Calculation of average salary by title stored in view. [Query](EmployeeSQL/bonus_q2.sql) 
 
 ```javascript
 CREATE VIEW "avg_salary_title" AS
@@ -154,7 +156,7 @@ GROUP BY t.title;
 SELECT * FROM avg_salary_title;
 ```
 
-- In [Jupyter Notebook](https://nbviewer.jupyter.org/github/abpuccini/sql-challenge/blob/main/Employee_DB.ipynb): Import view to visualize data 
+- In Jupyter Notebook: Import view to visualize data. [Jupyter Notebook](https://nbviewer.jupyter.org/github/abpuccini/sql-challenge/blob/main/Employee_DB.ipynb) 
 
 <p align="center">
   <img src="Images/avg_salary_title.png">
