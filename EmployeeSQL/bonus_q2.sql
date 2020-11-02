@@ -11,7 +11,7 @@ FROM employees AS e
 	JOIN salaries AS s
 	ON e.emp_no = s.emp_no
 		-- Join titles table for title using emp_title_id and title_id as the reference
-		JOIN titles as t
+		JOIN titles AS t
 		ON e.emp_title_id = t.title_id
 -- Apply GROUP BY to have average salary by title
 GROUP BY t.title;

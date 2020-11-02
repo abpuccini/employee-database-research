@@ -1,4 +1,4 @@
--- Epilogue
+-- Bonus: Epilogue
 
 -- Display employee#499942
 SELECT * FROM employees

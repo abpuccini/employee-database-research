@@ -38,8 +38,8 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 ```javascript
 SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
-FROM employees as e
-LEFT JOIN salaries as s
+FROM employees AS e
+LEFT JOIN salaries AS s
 ON e.emp_no = s.emp_no;|
 ```
 
@@ -147,7 +147,7 @@ ROUND(AVG(s.salary),2) AS "avg salary"
 FROM employees AS e 
 JOIN salaries AS s
 ON e.emp_no = s.emp_no
-JOIN titles as t
+JOIN titles AS t
 ON e.emp_title_id = t.title_id
 GROUP BY t.title;
 
