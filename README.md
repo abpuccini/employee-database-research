@@ -1,4 +1,4 @@
-# Employee Database: A Mystery in Two Parts
+# A Mystery in Two Parts
 
 ## Background
 
@@ -8,10 +8,10 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 ### Entity Relationship Diagram (ERD)
 
-- emp_no in employees table has a *many-to-one* relationships to emp_no in dept_emp and dept_manager tables.
-- emp_no in employees table has a *one-to-one* relationships to emp_no in salaries table.
-- title_id in titles table has a *many-to-one* relationships to emp_title_id in employees table.
-- dept_no in departments table has a *many-to-one* relationships to dept_no in dept_emp and dept_manager tables.
+- emp_no in employees table has a ***many-to-one*** relationships to emp_no in dept_emp and dept_manager tables.
+- emp_no in employees table has a ***one-to-one*** relationships to emp_no in salaries table.
+- title_id in titles table has a ***many-to-one*** relationships to emp_title_id in employees table.
+- dept_no in departments table has a ***many-to-one*** relationships to dept_no in dept_emp and dept_manager tables.
 
 ![Employee_ERD](Images/employee_DBD.png)
 
@@ -152,7 +152,7 @@ SELECT * FROM avg_salary_title;
 
 [**Epilogue:**](EmployeeSQL/bonus-epilogue.sql)
 
-After giving a presentation to company's boss, I heard the word, "Search your ID number." Then, I looked up for ID 499942 and found that the name and hire date were incorrect. That name was April Foolday and hire date is before I was born. There, I changed it to my name and hire date to November 4, 2020. :wink:   
+After giving a presentation to my boss, I heard the word, "Search your ID number." Then, I looked up for ID 499942 and found that the name and hire date were incorrect. That name was April Foolday and hire date is before I was born. Therefore, I changed it to my name and hire date to November 4, 2020. :wink:   
 
 ```javascript
 SELECT * FROM employees
