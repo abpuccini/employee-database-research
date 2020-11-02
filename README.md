@@ -13,20 +13,37 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 - title_id in titles table has a *many-to-one* relationships to emp_title_id in employees table.
 - dept_no in departments table has a *many-to-one* relationships to dept_no in dept_emp and dept_manager tables.
 
-![Employee_ERD]("Images/employee_DBD.png")
+![Employee_ERD](Images/employee_DBD.png)
 
 ### Data Analysis
 
-**List the following details of each employee: employee number, last name, first name, sex, and salary.**
+**Part I: Create tables regarding to 6 csv files**
 
-```javascript
--- Select columns to display
-SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
--- Select employees table as the first table to be joined
-FROM employees as e
-  -- Join salaries table to get salary info.
-  LEFT JOIN salaries as s
-  -- emp_no is the common reference for both table
-  ON e.emp_no = s.emp_no;
-```
+- Create `employee_db` database in PostgreSQL 
+- Import [schema](EmployeeSQL/employee_schema.sql) into database created
+- Import csv files to tables created as the following order:
+  * [titles](Resources/titles.csv)
+  * [employees](Resources/employees.csv)
+  * [departments](Resources/departments.csv)
+  * [dept_emp](Resources/dept_emp.csv)
+  * [dept_manager](Resources/dept_manager.csv)
+  * [salaries](Resources/salaries.csv)
+
+**Part II: Answer Questions**
+
+*This part will include all the queries excecuted in order to answer each quwstion.* 
+
+- List the following details of each employee: employee number, last name, first name, sex, and salary.
+
+[QueryI](EmployeeSQL/Q1.sql)
+
+  -- Select columns to display
+  SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
+  -- Select employees table as the first table to be joined
+  FROM employees as e
+    -- Join salaries table to get salary info.
+    LEFT JOIN salaries as s
+    -- emp_no is the common reference for both table
+    ON e.emp_no = s.emp_no;
+
 
