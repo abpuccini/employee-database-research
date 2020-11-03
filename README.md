@@ -8,14 +8,18 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 ### Entity Relationship Diagram (ERD)
 
-- emp_no in employees table has a ***many-to-one*** relationships to emp_no in dept_emp and dept_manager tables.
+**Many-to-one relationship**
+        
+        * emp_no in employees table and emp_no in dept_emp tables
+        * emp_no in employees table and emp_no in dept_manager tables
+        * title_id in titles table and emp_title_id in employees table
+        * dept_no in departments table and dept_no in dept_emp tables.
+        * dept_no in departments table and dept_no in dept_manager tables
 
-- emp_no in employees table has a ***one-to-one*** relationships to emp_no in salaries table.
+**One-to-one relationship**
 
-- title_id in titles table has a ***many-to-one*** relationships to emp_title_id in employees table.
-
-- dept_no in departments table has a ***many-to-one*** relationships to dept_no in dept_emp and dept_manager tables.
-
+        * emp_no in employees table and emp_no in salaries table
+        
 
 ![Employee_ERD](Images/employee_DBD.png)
 
