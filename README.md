@@ -10,16 +10,16 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 **Many-to-one relationship**
         
-        * emp_no in employees table and emp_no in dept_emp tables
-        * emp_no in employees table and emp_no in dept_manager tables
-        * title_id in titles table and emp_title_id in employees table
-        * dept_no in departments table and dept_no in dept_emp tables.
-        * dept_no in departments table and dept_no in dept_manager tables
+* emp_no in employees table and emp_no in dept_emp tables
+* emp_no in employees table and emp_no in dept_manager tables
+* title_id in titles table and emp_title_id in employees table
+* dept_no in departments table and dept_no in dept_emp tables.
+* dept_no in departments table and dept_no in dept_manager tables
 
 **One-to-one relationship**
 
-        * emp_no in employees table and emp_no in salaries table
-        
+* emp_no in employees table and emp_no in salaries table
+
 
 ![Employee_ERD](Images/employee_DBD.png)
 
