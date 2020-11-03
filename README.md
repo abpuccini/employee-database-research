@@ -9,8 +9,11 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 ### Entity Relationship Diagram (ERD)
 
 - emp_no in employees table has a ***many-to-one*** relationships to emp_no in dept_emp and dept_manager tables.
+
 - emp_no in employees table has a ***one-to-one*** relationships to emp_no in salaries table.
+
 - title_id in titles table has a ***many-to-one*** relationships to emp_title_id in employees table.
+
 - dept_no in departments table has a ***many-to-one*** relationships to dept_no in dept_emp and dept_manager tables.
 
 
@@ -140,7 +143,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 **Bonus-II:** Average salary by title
 
-- In postgres: Calculation of average salary by title stored in view. [(See Query)](EmployeeSQL/bonus_q2.sql) 
+- In postgres: Calculation of average salary by title which is stored in view. [(See Query)](EmployeeSQL/bonus_q2.sql) 
 
 
         CREATE VIEW "avg_salary_title" AS
