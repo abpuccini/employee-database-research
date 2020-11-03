@@ -35,7 +35,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 ### Part I: Reserch Questions
  
-**1. List the following details of each employee: employee number, last name, first name, sex, and salary.** [(Query-1)](EmployeeSQL/Q1.sql) 
+1. **List the following details of each employee: employee number, last name, first name, sex, and salary.** [(Query-1)](EmployeeSQL/Q1.sql) 
 
 
         SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
@@ -45,7 +45,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-**2. List first name, last name, and hire date for employees who were hired in 1986.** [(Query-2)](EmployeeSQL/Q2.sql) 
+2. **List first name, last name, and hire date for employees who were hired in 1986.** [(Query-2)](EmployeeSQL/Q2.sql) 
 
 
         SELECT first_name, last_name, hire_date
@@ -54,7 +54,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-**3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.** [(Query-3)](EmployeeSQL/Q3.sql)
+3. **List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.** [(Query-3)](EmployeeSQL/Q3.sql)
 
 
         SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
@@ -66,7 +66,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-**4. List the department of each employee with the following information: employee number, last name, first name, and department name.** [(Query-4)](EmployeeSQL/Q4.sql)
+4. **List the department of each employee with the following information: employee number, last name, first name, and department name.** [(Query-4)](EmployeeSQL/Q4.sql)
 
 
         SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
@@ -78,7 +78,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-**5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."** [(Query-5)](EmployeeSQL/Q5.sql) 
+5. **List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."** [(Query-5)](EmployeeSQL/Q5.sql) 
 
 
         SELECT first_name, last_name, sex
@@ -88,7 +88,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-**6. List all employees in the Sales department, including their employee number, last name, first name, and department name.** [(Query-6)](EmployeeSQL/Q6.sql) 
+6. **List all employees in the Sales department, including their employee number, last name, first name, and department name.** [(Query-6)](EmployeeSQL/Q6.sql) 
 
 
         SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
@@ -101,7 +101,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-**7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.** [(Query-7)](EmployeeSQL/Q7.sql) 
+7. **List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.** [(Query-7)](EmployeeSQL/Q7.sql) 
 
 
         SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
@@ -114,7 +114,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-**8. In descending order, list the frequency count of employee last names.** [(Query-8)](EmployeeSQL/Q8.sql) 
+8. **In descending order, list the frequency count of employee last names.** [(Query-8)](EmployeeSQL/Q8.sql) 
 
 
         SELECT last_name,
