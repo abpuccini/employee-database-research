@@ -26,15 +26,15 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 ### Database
 
 - Create `employee_db` database in PostgreSQL 
-- Import [schema](EmployeeSQL/employee_schema.sql) into database created
-- Import [csv files](Resources) to tables created as the following order:
+- Import [schema](EmployeeSQL/SQLquery/employee_schema.sql) into database created
+- Import [csv files](EmployeeSQL/Resources) to tables created as the following order:
 
-  * [titles](Resources/titles.csv)
-  * [employees](Resources/employees.csv)
-  * [departments](Resources/departments.csv)
-  * [dept_emp](Resources/dept_emp.csv)
-  * [dept_manager](Resources/dept_manager.csv)
-  * [salaries](Resources/salaries.csv)
+  * [titles](EmployeeSQL/Resources/titles.csv)
+  * [employees](EmployeeSQL/Resources/employees.csv)
+  * [departments](EmployeeSQL/Resources/departments.csv)
+  * [dept_emp](EmployeeSQL/Resources/dept_emp.csv)
+  * [dept_manager](EmployeeSQL/Resources/dept_manager.csv)
+  * [salaries](EmployeeSQL/Resources/salaries.csv)
 
 ---
 ## Data Analysis
@@ -42,7 +42,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 ### Part I: Reserch Questions
  
-- **List the following details of each employee: employee number, last name, first name, sex, and salary.** [(Query-1)](EmployeeSQL/Q1.sql) 
+- **List the following details of each employee: employee number, last name, first name, sex, and salary.** [(Query-1)](EmployeeSQL/SQLquery/Q1.sql) 
 
 
         SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
@@ -52,7 +52,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-- **List first name, last name, and hire date for employees who were hired in 1986.** [(Query-2)](EmployeeSQL/Q2.sql) 
+- **List first name, last name, and hire date for employees who were hired in 1986.** [(Query-2)](EmployeeSQL/SQLquery/Q2.sql) 
 
 
         SELECT first_name, last_name, hire_date
@@ -61,7 +61,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-- **List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.** [(Query-3)](EmployeeSQL/Q3.sql)
+- **List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.** [(Query-3)](EmployeeSQL/SQLquery/Q3.sql)
 
 
         SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
@@ -73,7 +73,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-- **List the department of each employee with the following information: employee number, last name, first name, and department name.** [(Query-4)](EmployeeSQL/Q4.sql)
+- **List the department of each employee with the following information: employee number, last name, first name, and department name.** [(Query-4)](EmployeeSQL/SQLquery/Q4.sql)
 
 
         SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
@@ -85,7 +85,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-- **List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."** [(Query-5)](EmployeeSQL/Q5.sql) 
+- **List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."** [(Query-5)](EmployeeSQL/SQLquery/Q5.sql) 
 
 
         SELECT first_name, last_name, sex
@@ -95,7 +95,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-- **List all employees in the Sales department, including their employee number, last name, first name, and department name.** [(Query-6)](EmployeeSQL/Q6.sql) 
+- **List all employees in the Sales department, including their employee number, last name, first name, and department name.** [(Query-6)](EmployeeSQL/SQLquery/Q6.sql) 
 
 
         SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
@@ -108,7 +108,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-- **List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.** [(Query-7)](EmployeeSQL/Q7.sql) 
+- **List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.** [(Query-7)](EmployeeSQL/SQLquery/Q7.sql) 
 
 
         SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
@@ -121,7 +121,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 
 ---
-- **In descending order, list the frequency count of employee last names.** [(Query-8)](EmployeeSQL/Q8.sql) 
+- **In descending order, list the frequency count of employee last names.** [(Query-8)](EmployeeSQL/SQLquery/Q8.sql) 
 
 
         SELECT last_name,
@@ -140,14 +140,14 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 - The most common salary for Pewlett Hackard's employees is between $40,000 and $50,000. [(See Jupyter Notebook)](https://nbviewer.jupyter.org/github/abpuccini/sql-challenge/blob/main/Employee_DB.ipynb)
 
 <p align="center">
-  <img src="Images/salary_range.png">
+  <img src="EmployeeSQL/Images/salary_range.png">
 </p>
 
 ---
 
 **Bonus-II:** Average salary by title
 
-- In postgres: Calculation of average salary by title which is stored in view. [(See Query)](EmployeeSQL/bonus_q2.sql) 
+- In postgres: Calculation of average salary by title which is stored in view. [(See Query)](EmployeeSQL/SQLquery/bonus_q2.sql) 
 
 
         CREATE VIEW "avg_salary_title" AS
@@ -171,7 +171,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 
 ---
 
-**Epilogue:** [See Query](EmployeeSQL/bonus-epilogue.sql)
+**Epilogue:** [See Query](EmployeeSQL/SQLquery/bonus-epilogue.sql)
 
 After giving a presentation to my boss, I heard the word, "Search your ID number." Then, I looked up for ID 499942 and found that the name and hire date were incorrect. That name was April Foolday and hire date is before I was born. Therefore, I updated first name, last name and hire date. Then, displying the information of employee number 499942 again. :wink:   
 
