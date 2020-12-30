@@ -21,7 +21,7 @@ As a new data engineer at Pewlett Hackard, a research project on employees of th
 * emp_no in employees table and emp_no in salaries table
 
 
-![Employee_ERD](Images/employee_DBD.png)
+![Employee_ERD](EmployeeSQL/Images/employee_DBD.png)
 
 ### Database
 
